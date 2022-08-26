@@ -7,6 +7,7 @@
  * @package Is_theme_webfooball
  */
 
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -148,6 +149,75 @@ function is_theme_webfooball_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'is_theme_webfooball_scripts' );
+
+function willgroup_init_champions() {
+    register_post_type('champions',
+        array(
+            'labels' => array(
+                'name'            => __('Champions League') ,
+                'singular_name'   => __('Champions League') ,
+                'menu_name'       => __('Champions League') ,
+                'name_admin_bar'  => __('Champions League') ,
+                'all_items'       => __('Tất cả Champions League') ,
+                'add_new'         => __('Thêm Champions League') ,
+                'add_new_item'    => __('Thêm Champions League') ,
+                'edit_item'       => __('Sửa Champions League') ,
+            ),
+            'description'     => __('Champions League') ,
+            'menu_position'   => 5,
+            'menu_icon'       => 'dashicons-admin-multisite',
+            'capability_type' => 'post',
+            'public'          => true,
+            'has_archive'     => 'champions_league',
+            'supports'        => array(
+                'title',
+                'thumbnail',
+                'editor',
+            ),
+            'rewrite'  => array(
+                'slug' => 'champions_league'
+            ),
+        )
+    );
+    flush_rewrite_rules();
+    register_taxonomy('champions_cat', array('champions') ,
+        array(
+            'labels' => array(
+                'name'              => __('Phân Loại Champions League') ,
+                'singular_name'     => __('Phân Loại Champions League') ,
+                'search_items'      => __('Tìm kiếm loại Champions League') ,
+                'all_items'         => __('Tất cả loại Champions League') ,
+                'parent_item'       => __('Danh mục Champions League cha') ,
+                'parent_item_colon' => __('Danh mục Champions League cha:') ,
+                'edit_item'         => __('Sửa danh mục Champions League') ,
+                'update_item'       => __('Cập nhật danh mục Champions League') ,
+                'add_new_item'      => __('Thêm danh mục Champions League') ,
+                'new_item_name'     => __('Tên danh mục Champions League') ,
+                'menu_name'         => __('Danh mục Champions League') ,
+            ),
+            'hierarchical' => true,
+            'public'       => true,
+            'rewrite'      => array(
+                'slug'     => 'loai-champions_league'
+            ),
+        )
+	);
+}
+add_action('init', 'willgroup_init_champions');
+
+// add class vào file scss ở header
+function add_additional_class_on_li($classes, $item, $args) {
+    if(isset($args->add_li_class)) {
+        $classes[] = $args->add_li_class;
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
+// function wpcf7_url_login() {
+// 	return"http://localhost:8080/webfooball-wordpress/";
+// }
+// add_filter('login_url', 'wpcf7_url_login');
 
 /**
  * Implement the Custom Header feature.
