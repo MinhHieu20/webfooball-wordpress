@@ -1,0 +1,280 @@
+@import "header";
+@import "footer";
+@import "champion";
+
+.container-width {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hght {
+    height: 100%;
+}
+html,
+body {
+  font-size: 1.6rem;
+  line-height: 1em;
+  box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    font-family: Arial,Helvetica,sans-serif;
+    line-height: 2em;
+    box-sizing: border-box;
+}
+
+
+//main
+.content {
+    .news-title {
+        color: #ea0000;
+        font-size: 1.8rem;
+        font-family: UTMhel;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 1rem;
+        position: relative;
+    }
+    .news-title::before {
+        content: "";
+        position: absolute;
+        top: -1rem;
+        width: 100%;
+        border-top: 3px solid #ea0000;
+    }
+    .news-scroll {
+        max-height: 47vh;
+        overflow-x: hidden;
+    }
+    .news-scroll {
+        scrollbar-width: thin;
+        scrollbar-color: #8f54a0 #ffffff;
+    }
+    .news-scroll::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    .news-scroll::-webkit-scrollbar-track {
+        background: #ccc;
+    }
+
+    .news-scroll::-webkit-scrollbar-thumb {
+        background-color: #736f6f;
+        height: 5px;
+    }
+    .bg-cl {
+        background-color: #f4f4f4;
+    }
+    &-news {
+        .hot-news {
+            margin-top: 3rem;
+            &-list {
+                list-style: none;
+                padding-left: 0;
+                margin-left: 0;
+                &__item {
+                    border: 1px solid #444;
+                    padding: 1.4rem 1.2rem;
+                    a {
+                        text-decoration: none;
+                        color: #333;
+                        line-height: 1.2em;
+                    }
+                }
+            }
+        }
+        .current-new {
+            margin-top: 2rem;
+            &-content {
+                &__image {
+                    height: 30rem;
+                    img {
+                        object-fit: cover;
+                    }
+                }
+                &__heading {
+                    color: #333;
+                    font-weight: 700;
+                    font-size: 2rem;
+                    margin: 1.4rem 0 1.4rem;
+                }
+                &__text { 
+                    border-bottom: 1px solid #ccc;
+                    padding-bottom: 1.4rem;
+                }
+                &__detail {
+                    &--text {
+                        font-size: 1.4rem;
+                        margin-top: 1.1rem;
+                        margin-bottom: 1.3rem;
+                    }
+                }
+            }
+        }
+        .reads-news{
+            &-video{
+                margin-top: 4rem;
+                margin-bottom: 3rem;
+            }
+            &-image {
+                margin-top: 1.4rem;
+            }
+            &-heading {
+                padding-top: 1.6rem;
+                padding-bottom: 1.8rem;
+                padding-left: 0.8rem;
+                background-color: #f4f4f4;
+                font-size: 1.6rem;
+                font-weight: 700;
+                margin: 0;
+            }
+            &-content { 
+                &__text {
+                    margin-top: 0.2rem;
+                    font-size: 1.4rem;
+                    line-height: 1.3em
+                }
+            }
+        }
+        &-details {
+            .latest-news {
+                &-content {
+                    border-bottom: 1px solid #ccc;
+                    &__image {
+                        width: 9.9rem;
+                        height: 6.4rem;
+                        margin-top: 0.8rem;
+                        margin-bottom: 3rem;
+                        margin-right: 1.2rem;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    &__heading {
+                        margin-top: 0.5rem;
+                    }
+                }
+            }
+            .transfer-news,
+            .english-football,
+            .spanish-football,
+            .vietnam-football,
+            .backstage,
+            .champions-league {
+                margin-bottom: 2rem;
+                &-left {
+                    &__image {
+                        height: 24.2rem;
+                        img {
+                            height: 100%;
+                        }
+                    }
+                    &__heading {
+                        font-size: 2rem;
+                        margin-top: 1.2rem;
+                        margin-bottom: 1.6rem;
+                    }
+                    &__text {
+                        color: #444;
+                    }
+                }
+                &-right {
+                    border-bottom: 1px solid #ccc;
+                    &__image {
+                        width: 9.9rem;
+                        height: 6.4rem;
+                        margin-bottom: 1rem;
+                        margin-right: 1.2rem;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+            .photo,
+            .video {
+                &-left {
+                    position: relative;
+                    &-image {
+                        height: 29.5rem;
+                    }
+                    &-heading {
+                        position: absolute;
+                        bottom: -1rem;
+                        background-color: #333;
+                        color: #fff;
+                        font-size: 2.6rem;
+                        padding: 1.4rem;
+                    }
+                }
+                &-right{
+                    position: relative;
+                    &-image {
+                        margin-bottom: 2.5rem;
+                    }
+                    &-heading {
+                        position: absolute;
+                        bottom: -1rem;
+                        color: #fff;
+                        font-size: 1.6rem;
+                        padding: 1.4rem;
+                    }
+                }
+            }
+            .soccer-news-one {
+                .europa-league,
+                .italian-football {
+                    &-heading {
+                        font-size: 2.6rem;
+                        margin-bottom: 3rem;
+                    }
+                    &-list {
+                        list-style: square;
+                        padding-left: 0;
+                        margin-left: 2rem;
+                        &__item {
+                            border-top: 1px solid #ccc;
+                            a {
+                                text-decoration: none;
+                                color: #333;
+                                font-size: 2rem;
+                                margin-top: 1.5rem;
+                                margin-bottom: 3rem;
+                                line-height: 1.2em;
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+            .soccer-news-two {
+                .german-football,
+                .french-football {
+                    &-heading {
+                        font-size: 2.6rem;
+                        margin-bottom: 3rem;
+                    }
+                    &-list {
+                        list-style: square;
+                        padding-left: 0;
+                        margin-left: 2rem;
+                        &__item {
+                            border-top: 1px solid #ccc;
+                            a {
+                                text-decoration: none;
+                                color: #333;
+                                font-size: 2rem;
+                                margin-top: 1.5rem;
+                                margin-bottom: 3rem;
+                                line-height: 1.2em;
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
