@@ -13,6 +13,7 @@
  */
 
 get_header();
+global $post;
 ?>
 <div class="content">
     <div class="container container-width">
@@ -27,7 +28,6 @@ get_header();
                                 $args= array('numberposts' => 11,'category' => 4);
                                 $custom = get_posts($args);
                                 foreach($custom as $post) : setup_postdata( $post );
-
                             ?>
                             <ul class="hot-news-list">
                                 <li class="hot-news-list__item">
@@ -45,11 +45,31 @@ get_header();
                     <div class="col-xl-6">
                         <div class="current-new">
                             <div class="current-new-content">
+                                <?php
+                                    $args = array(
+                                        'post_type' => 'attachment',
+                                        'post_mime_type' => 'image',
+                                        'orderby' => 'post_date',
+                                        'order' => 'desc',
+                                        'posts_per_page' => '1',
+                                        'post_status'    => 'inherit'
+                                        );
+                                
+                                    $loop = new WP_Query( $args );
+                                    
+                                    while ( $loop->have_posts() ) : $loop->the_post();
+                                    
+                                    $image = wp_get_attachment_image_src( get_the_ID() ); 
+                                ?>
                                 <div class="current-new-content__image">
-                                    <img src="<?php bloginfo('template_directory'); ?>/img/ten-hag-da-tim-thay-chia-khoa-giup-man-utd-tro-nen-dang-gom-045147.png" alt="" style="width:100%; height: 100%;">
+                                    <!-- <img src="<?php bloginfo('template_directory'); ?>/img/ten-hag-da-tim-thay-chia-khoa-giup-man-utd-tro-nen-dang-gom-045147.png" alt="" style="width:100%; height: 100%;"> -->
+                                    <img src="<?php echo $image[0]; ?>" class="w-100" alt="" style="width:100%; height: 100%;">
                                 </div>
                                 <?php
-                                    global $post;
+                                    endwhile;
+                                    wp_reset_postdata();
+                                ?>
+                                <?php
                                     $args = array('numberposts' =>1,'category' =>19);
                                     $custom = get_posts($args);
                                     foreach($custom as $post) : setup_postdata( $post );
@@ -62,20 +82,23 @@ get_header();
                                 <div class="current-new-content__detail">
                                     <div class="row">
                                         <?php 
-                                            global $post;
-                                            $args = array('numberposts' => 6,'category' => 20);
+                                            $args = array('numberposts' => 6,'category' => 20,);
                                             $custom = get_posts($args);
                                             foreach ($custom as $post) : setup_postdata( $post );
+                                            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
                                         ?>
                                         <div class="col-xl-4">
                                             <div class="current-new-content__detail--image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php echo $image[0]; ?>" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <a href="<?php the_permalink(); ?>"class="current-new-content__detail--text">
                                                 <?php the_title(); ?>
                                             </a>
                                         </div>
-                                        <?php endforeach; wp_reset_postdata(); ?>
+                                        <?php 
+                                            endforeach; 
+                                            wp_reset_postdata(); 
+                                        ?>
                                     </div>
                                 </div>
                             </div>

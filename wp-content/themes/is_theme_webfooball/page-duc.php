@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Trang Mới Nhất
+ * Template Name: Trang Đức
  * 
  * @package Is_theme_webfooball
  */
