@@ -43,7 +43,7 @@ html {
         border-top: 3px solid #ea0000;
     }
     .news-scroll {
-        max-height: 47vh;
+        max-height: 39vh;
         overflow-x: hidden;
     }
     .news-scroll {
@@ -109,6 +109,8 @@ html {
                         font-size: 1.4rem;
                         margin-top: 1.1rem;
                         margin-bottom: 1.3rem;
+                        text-decoration: none;
+                        color: #444;
                     }
                 }
             }
@@ -230,7 +232,7 @@ html {
                 .europa-league,
                 .italian-football {
                     &-heading {
-                        font-size: 2.6rem;
+                        font-size: 2.18rem;
                         margin-bottom: 3rem;
                     }
                     &-list {

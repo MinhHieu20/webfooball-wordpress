@@ -22,126 +22,60 @@ get_header();
                     <div class="col-xl-3">
                         <div class="hot-news">
                             <h4 class="news-title">tin nóng</h4>
+                            <?php
+                                global $post;
+                                $args= array('numberposts' => 11,'category' => 4);
+                                $custom = get_posts($args);
+                                foreach($custom as $post) : setup_postdata( $post );
+
+                            ?>
                             <ul class="hot-news-list">
                                 <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Đồng ý HĐ 5 năm với M.U, tân binh tiềm năng bắt đầu tìm nhà ở Manchester
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Sắp nổ bom tấn đắt giá, M.U chốt luôn vụ Cody Gakpo
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Ajax đổ vỡ thương vụ với Chelsea cho người thay Antony 
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Pique chơi lớn, ra giá 21 triệu bảng cho tiền vệ Man United
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Sao Arsenal kiểm tra y tế
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Ben Foster khuyên Ten Hag cứu rỗi 2 ngôi sao M.U
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        M.U bắt đầu đàm phán với Newcastle, không phải cho Saint-Maximin
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Nicolas Pepe từ chối CLB Premier League 
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Giới chủ ưu ái, Ten Hag đã được cấp hơn 200 triệu bảng
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Ten Hag và Bruno cùng đồng ý 1 điều về Casemiro
-                                    </a>
-                                </li>
-                                <li class="hot-news-list__item">
-                                    <a href="#">
-                                        Conte 'giải vây' cho Mourinho
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php the_title(); ?>
                                     </a>
                                 </li>
                             </ul>
+                            <?php
+                                endforeach;
+                                wp_reset_postdata();
+                            ?>
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <div class="current-new">
                             <div class="current-new-content">
                                 <div class="current-new-content__image">
-                                    <img src="<?php bloginfo('template_directory'); ?>/img/conte-da-dung-ve-christian-eriksen-062951.png" alt="" style="width:100%; height: 100%;">
+                                    <img src="<?php bloginfo('template_directory'); ?>/img/ten-hag-da-tim-thay-chia-khoa-giup-man-utd-tro-nen-dang-gom-045147.png" alt="" style="width:100%; height: 100%;">
                                 </div>
-                                <h3 class="current-new-content__heading">Conte đã đúng về Christian Eriksen</h3>
+                                <?php
+                                    global $post;
+                                    $args = array('numberposts' =>1,'category' =>19);
+                                    $custom = get_posts($args);
+                                    foreach($custom as $post) : setup_postdata( $post );
+                                ?>
+                                <h3 class="current-new-content__heading"><?php the_title(); ?></h3>
                                 <p class="current-new-content__text">
-                                    Christian Eriksen đã thể hiện màn trình diễn hay nhất của mình trong màu áo Quỷ đỏ cho đến nay ở trận thắng Liverpool.
+                                    <?php echo get_the_excerpt(); ?>
                                 </p>
+                                <?php endforeach; wp_reset_postdata(); ?>
                                 <div class="current-new-content__detail">
                                     <div class="row">
+                                        <?php 
+                                            global $post;
+                                            $args = array('numberposts' => 6,'category' => 20);
+                                            $custom = get_posts($args);
+                                            foreach ($custom as $post) : setup_postdata( $post );
+                                        ?>
                                         <div class="col-xl-4">
                                             <div class="current-new-content__detail--image">
                                                 <img src="<?php bloginfo('template_directory'); ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
-                                            <p class="current-new-content__detail--text">
-                                                Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                            </p>
+                                            <a href="<?php the_permalink(); ?>"class="current-new-content__detail--text">
+                                                <?php the_title(); ?>
+                                            </a>
                                         </div>
-                                        <div class="col-xl-4">
-                                            <div class="current-new-content__detail--image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <p class="current-new-content__detail--text">
-                                                Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                            </p>
-                                        </div>
-                                        <div class="col-xl-4">
-                                            <div class="current-new-content__detail--image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <p class="current-new-content__detail--text">
-                                                Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                            </p>
-                                        </div>
-                                        <div class="col-xl-4">
-                                            <div class="current-new-content__detail--image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <p class="current-new-content__detail--text">
-                                                Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                            </p>
-                                        </div>
-                                        <div class="col-xl-4">
-                                            <div class="current-new-content__detail--image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <p class="current-new-content__detail--text">
-                                                Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                            </p>
-                                        </div>
-                                        <div class="col-xl-4">
-                                            <div class="current-new-content__detail--image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <p class="current-new-content__detail--text">
-                                                Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                            </p>
-                                        </div>
-                                        
+                                        <?php endforeach; wp_reset_postdata(); ?>
                                     </div>
                                 </div>
                             </div>
@@ -154,50 +88,27 @@ get_header();
                             </div>
                             <div class="news-title">Tin đọc nhiều nhất</div>
                             <div class="reads-news-image">
-                                <img src="<?php bloginfo('template_directory'); ?>/img/conte-da-dung-ve-christian-eriksen-062951.png" alt="" style="width:100%; height: 100%;">
+                                <img src="<?php bloginfo('template_directory'); ?>/img/hero-we-go-man-utd-don-tan-binh-thu-5-044113.jpg" alt="" style="width:100%; height: 100%;">
                             </div>
-                            <h3 class="reads-news-heading">Conte đã đúng về Christian Eriksen</h3>
+                            <h3 class="reads-news-heading">Here we go! Man Utd đón tân binh thứ 5</h3>
                             <div class="row">
+                                <?php 
+                                    global $post;
+                                    $args = array('numberposts' =>4,'category' =>5);
+                                    $custom = get_posts($args);
+                                    foreach($custom as $post) : setup_postdata( $post );
+                                ?>
                                 <div class="col-xl-6 bg-cl">
                                     <div class="reads-news-content">
                                         <div class="reads-news-content__image">
                                             <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
                                         </div>
                                         <p class="reads-news-content__text">
-                                            Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
+                                            <?php the_title(); ?>
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-xl-6 bg-cl">
-                                    <div class="reads-news-content">
-                                        <div class="reads-news-content__image">
-                                            <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                        </div>
-                                        <p class="reads-news-content__text">
-                                            Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 bg-cl">
-                                    <div class="reads-news-content">
-                                        <div class="reads-news-content__image">
-                                            <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                        </div>
-                                        <p class="reads-news-content__text">
-                                            Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 bg-cl">
-                                    <div class="reads-news-content">
-                                        <div class="reads-news-content__image">
-                                            <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                        </div>
-                                        <p class="reads-news-content__text">
-                                            Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                        </p>
-                                    </div>
-                                </div>
+                                <?php endforeach; wp_reset_postdata(); ?>
                             </div>
                         </div>
                     </div>
@@ -210,106 +121,26 @@ get_header();
                             <div class="latest-news">
                                 <h3 class="news-title">Tin mới nhất</h3>
                                 <div class="row">
+                                    <?php
+                                        global $post;
+                                        $args = array('numberposts' => 10,'category' => 6);
+                                        $custom = get_posts($args);
+                                        foreach ($custom as $post) : setup_postdata( $post );
+                                    ?>
                                     <div class="col-xl-6">
                                         <div class="latest-news-content d-flex">
                                             <div class="latest-news-content__image col-xl-2">
                                                 <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
+                                                <?php the_title(); ?>
                                             </h4>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <div class="latest-news-content d-flex">
-                                            <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="latest-news-content d-flex">
-                                            <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="latest-news-content d-flex">
-                                            <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="latest-news-content d-flex">
-                                            <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="latest-news-content d-flex">
-                                            <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="latest-news-content d-flex">
-                                            <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="latest-news-content d-flex">
-                                            <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="latest-news-content d-flex">
-                                            <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="latest-news-content d-flex">
-                                            <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="latest-news-content__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                    </div>
+                                    <?php
+                                        endforeach;
+                                        wp_reset_postdata();
+                                    ?>
                                 </div>
                             </div>
 
@@ -319,103 +150,33 @@ get_header();
                                     <div class="col-xl-6">
                                         <div class="transfer-news-left">
                                             <div class="transfer-news-left__image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php bloginfo('template_directory'); ?>/img/de-jong-khong-muon-den-man-united-nhung-cau-ay-thi-co-125247.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
-                                            <h3 class="transfer-news-left__heading">Tại sao 90 triệu euro cho Antony vẫn rẻ?</h3>
+                                            <h3 class="transfer-news-left__heading">"De Jong không muốn đến Man United, nhưng cậu ấy thì có"</h3>
                                             <p class="transfer-news-left__text">
-                                                Man United đang tỏ rõ sự quan tâm và sẵn sàng chi ra một khoản tiền lớn cho cầu thủ chạy cánh Antony của Ajax.
+                                                Cựu cầu thủ Gabriel Agbonlahor có những chia sẻ đáng chú ý xoay quanh một tân binh tiềm năng của Manchester United. 
                                             </p>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 news-scroll">
+                                        <?php
+                                            global $post;
+                                            $args = array('numberposts' => 10,'category' => 7);
+                                            $custom = get_posts($args);
+                                            foreach ($custom as $post) : setup_postdata( $post );
+                                        ?>
                                         <div class="transfer-news-right d-flex">
                                             <div class="transfer-news-right__image col-xl-2">
                                                 <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
+                                                <?php the_title(); ?>
                                             </h4>
                                         </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="transfer-news-right d-flex">
-                                            <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="transfer-news-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
+                                        <?php
+                                            endforeach;
+                                            wp_reset_postdata();
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -426,71 +187,33 @@ get_header();
                                     <div class="col-xl-6">
                                         <div class="english-football-left">
                                             <div class="english-football-left__image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php bloginfo('template_directory'); ?>/img/cac-hlv-premier-league-lo-ngai-haaland-132315.png" alt="" style="width:100%; height: 100%;">
                                             </div>
-                                            <h3 class="english-football-left__heading">Tại sao 90 triệu euro cho Antony vẫn rẻ?</h3>
+                                            <h3 class="english-football-left__heading">Các HLV Premier League lo ngại Haaland</h3>
                                             <p class="english-football-left__text">
-                                                Man United đang tỏ rõ sự quan tâm và sẵn sàng chi ra một khoản tiền lớn cho cầu thủ chạy cánh Antony của Ajax.
+                                                Màn trình diễn ấn tượng của tiền đạo Erling Haaland trong màu áo Man City khiến các chiến lược gia tại Premier League e ngại.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 news-scroll">
+                                        <?php
+                                            global $post;
+                                            $args = array('numberposts' => 10,'category' => 8);
+                                            $custom = get_posts($args);
+                                            foreach ($custom as $post) : setup_postdata( $post );
+                                        ?>
                                         <div class="english-football-right d-flex">
                                             <div class="english-football-right__image col-xl-2">
                                                 <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="english-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
+                                                <?php the_title(); ?>
                                             </h4>
                                         </div>
-                                        <div class="english-football-right d-flex">
-                                            <div class="english-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="english-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="english-football-right d-flex">
-                                            <div class="english-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="english-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="english-football-right d-flex">
-                                            <div class="english-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="english-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="english-football-right d-flex">
-                                            <div class="english-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="english-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="english-football-right d-flex">
-                                            <div class="english-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="english-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="english-football-right d-flex">
-                                            <div class="english-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="english-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
+                                        <?php
+                                            endforeach;
+                                            wp_reset_postdata();
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -501,63 +224,33 @@ get_header();
                                     <div class="col-xl-6">
                                         <div class="spanish-football-left">
                                             <div class="spanish-football-left__image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php bloginfo('template_directory'); ?>/img/treu-nguoi-doi-thu-richarlison-bi-carragher-chi-trich-113828.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
-                                            <h3 class="english-football-left__heading">Tại sao 90 triệu euro cho Antony vẫn rẻ?</h3>
+                                            <h3 class="english-football-left__heading">Trêu ngươi đối thủ, Richarlison bị Carragher chỉ trích</h3>
                                             <p class="english-football-left__text">
-                                                Man United đang tỏ rõ sự quan tâm và sẵn sàng chi ra một khoản tiền lớn cho cầu thủ chạy cánh Antony của Ajax.
+                                                Jamie Carragher đã lên tiếng chỉ trích Richarlison sau trận đấu giữa Nottingham Forest và Tottenham Hotspur.   
                                             </p>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 news-scroll">
+                                        <?php
+                                            global $post;
+                                            $args = array('numberposts' => 10,'category' => 9);
+                                            $custom = get_posts($args);
+                                            foreach ($custom as $post) : setup_postdata( $post );
+                                        ?>
                                         <div class="spanish-football-right d-flex">
                                             <div class="spanish-football-right__image col-xl-2">
                                                 <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="spanish-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
+                                                <?php the_title(); ?>
                                             </h4>
                                         </div>
-                                        <div class="spanish-football-right d-flex">
-                                            <div class="spanish-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="spanish-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="spanish-football-right d-flex">
-                                            <div class="spanish-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="spanish-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="spanish-football-right d-flex">
-                                            <div class="spanish-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="spanish-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="spanish-football-right d-flex">
-                                            <div class="spanish-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="spanish-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="spanish-football-right d-flex">
-                                            <div class="spanish-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="spanish-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
+                                        <?php
+                                            endforeach;
+                                            wp_reset_postdata();
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -568,71 +261,33 @@ get_header();
                                     <div class="col-xl-6">
                                         <div class="vietnam-football-left">
                                             <div class="vietnam-football-left__image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php bloginfo('template_directory'); ?>/img/quang-hai-pau-fc-2-23234419-1804.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
-                                            <h3 class="english-football-left__heading">Tại sao 90 triệu euro cho Antony vẫn rẻ?</h3>
+                                            <h3 class="english-football-left__heading">Quang Hải cần liều doping từ Pau FC</h3>
                                             <p class="english-football-left__text">
-                                                Man United đang tỏ rõ sự quan tâm và sẵn sàng chi ra một khoản tiền lớn cho cầu thủ chạy cánh Antony của Ajax.
+                                                Nguyễn Quang Hải cần được trao cơ hội ra sân nhiều hơn trong đội hình của Pau FC ở các trận đấu tới.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 news-scroll">
+                                        <?php
+                                            global $post;
+                                            $args = array('numberposts' => 10,'category' => 10);
+                                            $custom = get_posts($args);
+                                            foreach ($custom as $post) : setup_postdata( $post );
+                                        ?>
                                         <div class="vietnam-football-right d-flex">
                                             <div class="vietnam-football-right__image col-xl-2">
                                                 <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="vietnam-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
+                                                <?php the_title(); ?>
                                             </h4>
                                         </div>
-                                        <div class="vietnam-football-right d-flex">
-                                            <div class="vietnam-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="vietnam-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="vietnam-football-right d-flex">
-                                            <div class="vietnam-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="vietnam-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="vietnam-football-right d-flex">
-                                            <div class="vietnam-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="vietnam-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="vietnam-football-right d-flex">
-                                            <div class="vietnam-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="vietnam-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="vietnam-football-right d-flex">
-                                            <div class="vietnam-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="vietnam-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="vietnam-football-right d-flex">
-                                            <div class="vietnam-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="vietnam-football-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
+                                        <?php
+                                            endforeach;
+                                            wp_reset_postdata();
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -693,71 +348,33 @@ get_header();
                                     <div class="col-xl-6">
                                         <div class="backstage-left">
                                             <div class="backstage-left__image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php bloginfo('template_directory'); ?>/img/pogba-0718.png" alt="" style="width:100%; height: 100%;">
                                             </div>
-                                            <h3 class="english-football-left__heading">Tại sao 90 triệu euro cho Antony vẫn rẻ?</h3>
+                                            <h3 class="english-football-left__heading">Pogba bị tống tiền </h3>
                                             <p class="english-football-left__text">
-                                                Man United đang tỏ rõ sự quan tâm và sẵn sàng chi ra một khoản tiền lớn cho cầu thủ chạy cánh Antony của Ajax.
+                                                Tiền vệ người Pháp đã trình báo vụ việc đến các cơ quan chức năng khi trở thành mục tiêu của một nhóm tội phạm.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 news-scroll">
+                                        <?php
+                                            global $post;
+                                            $args = array('numberposts' => 10,'category' => 12);
+                                            $custom = get_posts($args);
+                                            foreach ($custom as $post) : setup_postdata( $post );
+                                        ?>
                                         <div class="backstage-right d-flex">
                                             <div class="backstage-right__image col-xl-2">
                                                 <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="backstage-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
+                                                <?php the_title(); ?>
                                             </h4>
                                         </div>
-                                        <div class="backstage-right d-flex">
-                                            <div class="backstage-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="backstage-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="backstage-right d-flex">
-                                            <div class="backstage-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="backstage-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="backstage-right d-flex">
-                                            <div class="backstage-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="backstage-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="backstage-right d-flex">
-                                            <div class="backstage-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="backstage-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="backstage-right d-flex">
-                                            <div class="backstage-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="backstage-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="backstage-right d-flex">
-                                            <div class="backstage-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="backstage-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
+                                        <?php
+                                            endforeach;
+                                            wp_reset_postdata();
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -768,63 +385,33 @@ get_header();
                                     <div class="col-xl-6">
                                         <div class="champions-league-left">
                                             <div class="champions-league-left__image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php bloginfo('template_directory'); ?>/img/van-der-sar-xin-loi-khuyen-tu-ten-hag-160348.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
-                                            <h3 class="english-football-left__heading">Tại sao 90 triệu euro cho Antony vẫn rẻ?</h3>
+                                            <h3 class="english-football-left__heading">Van der Sar xin lời khuyên từ Ten Hag</h3>
                                             <p class="english-football-left__text">
-                                                Man United đang tỏ rõ sự quan tâm và sẵn sàng chi ra một khoản tiền lớn cho cầu thủ chạy cánh Antony của Ajax.
+                                                Cựu danh thủ Manchester United, Edwin Van der Sar đã xin lời khuyên từ HLV Erik Ten Hag về địch thủ sắp tới của họ, Liverpool.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 news-scroll">
+                                        <?php
+                                            global $post;
+                                            $args = array('numberposts' => 10,'category' =>13);
+                                            $custom = get_posts($args);
+                                            foreach ($custom as $post) : setup_postdata( $post );
+                                        ?>
                                         <div class="champions-league-right d-flex">
                                             <div class="champions-league-right__image col-xl-2">
                                                 <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="champions-league-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
+                                                <?php the_title(); ?>
                                             </h4>
                                         </div>
-                                        <div class="champions-league-right d-flex">
-                                            <div class="champions-league-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="champions-league-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="champions-league-right d-flex">
-                                            <div class="champions-league-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="champions-league-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="champions-league-right d-flex">
-                                            <div class="champions-league-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="champions-league-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="champions-league-right d-flex">
-                                            <div class="champions-league-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="champions-league-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
-                                        <div class="champions-league-right d-flex">
-                                            <div class="champions-league-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                            </div>
-                                            <h4 class="champions-league-right__heading col-xl-10">
-                                                "Tôi chắc chắn Maguire sẽ không hoảng sợ"
-                                            </h4>
-                                        </div>
+                                        <?php 
+                                            endforeach;
+                                            wp_reset_postdata();
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -835,32 +422,27 @@ get_header();
                                         <div class="europa-league">
                                             <h3 class="news-title">europa-league</h3>
                                             <div class="europa-league-image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/ten-hag-1215.jpeg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php bloginfo('template_directory'); ?>/img/vong-bang-europa-league-arsenal-man-utd-de-tho-191030.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="europa-league-heading">
-                                                Hành trình chinh phục Europa League của Man Utd được ấn định
+                                                Vòng bảng Europa League: Arsenal, Man Utd dễ thở
                                             </h4>
                                             <ul class="europa-league-list">
+                                                <?php
+                                                    global $post;
+                                                    $args = array('numberposts'=>4,'category' => 14);
+                                                    $custom = get_posts($args);
+                                                    foreach($custom as $post) : setup_postdata($post);
+                                                ?>
                                                 <li class="europa-league-list__item">
                                                     <a href="#">
-                                                        Declan Rice bị UEFA trừng phạt
+                                                        <?php the_title(); ?>
                                                     </a>
                                                 </li>
-                                                <li class="europa-league-list__item">
-                                                    <a href="#">
-                                                        'Sai lầm này sẽ ám ảnh Aaron Ramsey cả cuộc đời'
-                                                    </a>
-                                                </li>
-                                                <li class="europa-league-list__item">
-                                                    <a href="#">
-                                                        Eintracht Frankfurt tái lập kỳ tích của Chelsea khi vô địch Europa League
-                                                    </a>
-                                                </li>
-                                                <li class="europa-league-list__item">
-                                                    <a href="#">
-                                                        Dự đoán Frankfurt vs Rangers - Chung kết Cúp C2 ngày 19/05 - Ai sẽ lên ngôi?
-                                                    </a>
-                                                </li>
+                                                <?php 
+                                                    endforeach;
+                                                    wp_reset_postdata();
+                                                ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -868,32 +450,27 @@ get_header();
                                         <div class="italian-football">
                                             <h3 class="news-title">bóng đá ý</h3>
                                             <div class="italian-football-image">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/ten-hag-1215.jpeg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php bloginfo('template_directory'); ?>/img/mourinho-dieu-do-khien-toi-xau-ho-ve-ho-194411.jpg" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="italian-football-heading">
-                                                Hành trình chinh phục Europa League của Man Utd được ấn định
+                                                Mourinho: "Điều đó khiến tôi xấu hổ về họ"
                                             </h4>
                                             <ul class="italian-football-list">
+                                                <?php
+                                                    global $post;
+                                                    $args = array('numberposts'=>4,'category' => 15);
+                                                    $custom = get_posts($args);
+                                                    foreach($custom as $post) : setup_postdata($post);
+                                                ?>
                                                 <li class="italian-football-list__item">
-                                                    <a href="#">
-                                                        Declan Rice bị UEFA trừng phạt
+                                                    <a href="<?php the_permalink(); ?>">
+                                                        <?php the_title(); ?>
                                                     </a>
                                                 </li>
-                                                <li class="italian-football-list__item">
-                                                    <a href="#">
-                                                        'Sai lầm này sẽ ám ảnh Aaron Ramsey cả cuộc đời'
-                                                    </a>
-                                                </li>
-                                                <li class="italian-football-list__item">
-                                                    <a href="#">
-                                                        Eintracht Frankfurt tái lập kỳ tích của Chelsea khi vô địch Europa League
-                                                    </a>
-                                                </li>
-                                                <li class="italian-football-list__item">
-                                                    <a href="#">
-                                                        Dự đoán Frankfurt vs Rangers - Chung kết Cúp C2 ngày 19/05 - Ai sẽ lên ngôi?
-                                                    </a>
-                                                </li>
+                                                <?php 
+                                                    endforeach; 
+                                                    wp_reset_postdata();
+                                                ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -905,32 +482,24 @@ get_header();
                                     <div class="german-football">
                                         <h3 class="news-title">bóng đá đức</h3>
                                         <div class="german-football-image">
-                                            <img src="<?php bloginfo('template_directory'); ?>/img/ten-hag-1215.jpeg" alt="" style="width:100%; height: 100%;">
+                                            <img src="<?php bloginfo('template_directory'); ?>/img/doi-bong-bundesliga-tao-ra-ty-so-voi-xac-suat-0012-225718.jpg" alt="" style="width:100%; height: 100%;">
                                         </div>
                                         <h4 class="german-football-heading">
-                                            Hành trình chinh phục Europa League của Man Utd được ấn định
+                                            Đội bóng Bundesliga tạo ra tỷ số với xác suất 0,012%
                                         </h4>
                                         <ul class="german-football-list">
+                                            <?php 
+                                                global $post;
+                                                $args = array('numberposts' =>4,'category' =>16);
+                                                $custom = get_posts($args);
+                                                foreach($custom as $post) : setup_postdata( $post );
+                                            ?>
                                             <li class="german-football-list__item">
-                                                <a href="#">
-                                                    Declan Rice bị UEFA trừng phạt
+                                                <a href="<?php the_permalink(); ?>">
+                                                    <?php the_title(); ?>
                                                 </a>
                                             </li>
-                                            <li class="german-football-list__item">
-                                                <a href="#">
-                                                    'Sai lầm này sẽ ám ảnh Aaron Ramsey cả cuộc đời'
-                                                </a>
-                                            </li>
-                                            <li class="german-football-list__item">
-                                                <a href="#">
-                                                    Eintracht Frankfurt tái lập kỳ tích của Chelsea khi vô địch Europa League
-                                                </a>
-                                            </li>
-                                            <li class="german-football-list__item">
-                                                <a href="#">
-                                                    Dự đoán Frankfurt vs Rangers - Chung kết Cúp C2 ngày 19/05 - Ai sẽ lên ngôi?
-                                                </a>
-                                            </li>
+                                            <?php endforeach; wp_reset_postdata(); ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -938,32 +507,24 @@ get_header();
                                     <div class="french-football">
                                         <h3 class="news-title">bóng đá pháp</h3>
                                         <div class="french-football-image">
-                                            <img src="<?php bloginfo('template_directory'); ?>/img/ten-hag-1215.jpeg" alt="" style="width:100%; height: 100%;">
+                                            <img src="<?php bloginfo('template_directory'); ?>/img/nuno-tavares-0001-0602.jpg" alt="" style="width:100%; height: 100%;">
                                         </div>
                                         <h4 class="french-football-heading">
-                                            Hành trình chinh phục Europa League của Man Utd được ấn định
+                                            Người Arsenal rực sáng ở Ligue 1
                                         </h4>
                                         <ul class="french-football-list">
+                                            <?php 
+                                                global $post;
+                                                $args = array('numberposts' =>4,'category' =>17);
+                                                $custom = get_posts($args);
+                                                foreach($custom as $post) : setup_postdata( $post );
+                                            ?>
                                             <li class="french-football-list__item">
-                                                <a href="#">
-                                                    Declan Rice bị UEFA trừng phạt
+                                                <a href="<?php the_permalink(); ?>">
+                                                    <?php the_title(); ?>
                                                 </a>
                                             </li>
-                                            <li class="french-football-list__item">
-                                                <a href="#">
-                                                    'Sai lầm này sẽ ám ảnh Aaron Ramsey cả cuộc đời'
-                                                </a>
-                                            </li>
-                                            <li class="french-football-list__item">
-                                                <a href="#">
-                                                    Eintracht Frankfurt tái lập kỳ tích của Chelsea khi vô địch Europa League
-                                                </a>
-                                            </li>
-                                            <li class="french-football-list__item">
-                                                <a href="#">
-                                                    Dự đoán Frankfurt vs Rangers - Chung kết Cúp C2 ngày 19/05 - Ai sẽ lên ngôi?
-                                                </a>
-                                            </li>
+                                            <?php endforeach; wp_reset_postdata(); ?>
                                         </ul>
                                     </div>
                                 </div></div>
