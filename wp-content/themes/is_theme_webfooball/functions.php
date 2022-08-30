@@ -6,11 +6,15 @@
  *
  * @package Is_theme_webfooball
  */
+/**
+ * nhung file /core/init.php
+ */
+require_once (get_template_directory() . "/core/init.php");
 
 
-if ( ! defined( '_S_VERSION' ) ) {
+if ( ! defined( 'Is_theme_webfooball_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( 'Is_theme_webfooball_S_VERSION', '1.0.0' );
 }
 
 /**
@@ -139,10 +143,10 @@ add_action( 'widgets_init', 'is_theme_webfooball_widgets_init' );
  * Enqueue scripts and styles.
  */
 function is_theme_webfooball_scripts() {
-	wp_enqueue_style( 'is_theme_webfooball-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'is_theme_webfooball-style', get_stylesheet_uri(), array(), Is_theme_webfooball_S_VERSION );
 	wp_style_add_data( 'is_theme_webfooball-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'is_theme_webfooball-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'is_theme_webfooball-navigation', get_template_directory_uri() . '/js/navigation.js', array(), Is_theme_webfooball_S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -213,6 +217,7 @@ function add_additional_class_on_li($classes, $item, $args) {
     return $classes;
 }
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
 
 // function wpcf7_url_login() {
 // 	return"http://localhost:8080/webfooball-wordpress/";

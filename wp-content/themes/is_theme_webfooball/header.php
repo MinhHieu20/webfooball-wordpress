@@ -8,8 +8,10 @@
  *
  * @package Is_theme_webfooball
  */
+global $ls_options;
 
 ?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -33,7 +35,7 @@
                 <div class="row justify-content-between align-items-center hght">
                     <div class="header-logo col-xl-2">
                         <a href="<?php echo home_url(); ?>">
-                            <img src="<?php bloginfo('template_directory') ?>/img/logo_black.png" alt="">
+                            <img src="<?php echo $ls_options['logo-header']['url']; ?>" alt="" />
                         </a>
                     </div>
                     <div class="header-content col-xl-10">

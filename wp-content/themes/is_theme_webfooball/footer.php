@@ -8,6 +8,7 @@
  *
  * @package Is_theme_webfooball
  */
+global $ls_options;
 
 ?>
 <footer class="footer">
@@ -15,7 +16,7 @@
                 <div class="row">
                     <div class="col-xl-4 footer-border">
                         <div class="footer-logo">
-                            <img src="<?php bloginfo('template_directory'); ?>/img/logo_red.png" alt="">
+                            <img src="<?php echo $ls_options['logo-footer']['url']; ?>" alt="" />
                         </div>
                         <div class="footer-text">
                             Giấy phép: Số 29/GP-TTĐT của Bộ Thông tin - Truyền thông ngày 11/02/2010 và GP số 53/GP-STTTT của Sở Thông tin và Truyền thông TP. Hồ Chí Minh cấp ngày 4/8/2021.<br>
@@ -31,43 +32,43 @@
                                 <div class="footer-list-item__icon">
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
-                                <span>Địa chỉ: </span>  02 Đinh Tiên Hoàng, P.Đa Kao, Q.1, TP.HCM.
+                                <span>Địa chỉ: </span>  <?php echo $ls_options['addft']; ?>
                             </li>
                             <li class="footer-list-item">
                                 <div class="footer-list-item__icon">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
-                                <span>Điện thoại:</span> (08) 3910-5017
+                                <span>Điện thoại:</span>  <?php echo $ls_options['hotline']; ?></span>
                             </li>
                             <li class="footer-list-item">
                                 <div class="footer-list-item__icon">
                                     <i class="fa-solid fa-fax"></i>
                                 </div>
-                                <span>Fax:</span> (08) 3910-5019.
+                                <span>Fax:</span>  <?php echo $ls_options['hotline-1']; ?>
                             </li>
                             <li class="footer-list-item">
                                 <div class="footer-list-item__icon">
                                     <i class="fa-solid fa-circle-exclamation"></i>
                                 </div>
-                                <span>Quảng cáo:</span> 0909 74 64 28.
+                                <span>Quảng cáo:</span> <?php echo $ls_options['hotline-2']; ?>.
                             </li>
                             <li class="footer-list-item">
                                 <div class="footer-list-item__icon">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
-                                <span>Liên hệ quảng cáo:</span> quangcao@bongda.com.vn
+                                <span>Liên hệ quảng cáo:</span>  <?php echo $ls_options['emailft-1']; ?>
                             </li>
                             <li class="footer-list-item">
                                 <div class="footer-list-item__icon">
                                     <i class="fa-solid fa-paper-plane"></i>
                                 </div>
-                                <span>Tòa soạn & hỗ trợ:</span> (08) 3910-5018.
+                                <span>Tòa soạn & hỗ trợ:</span>  <?php echo $ls_options['hotline-3']; ?>
                             </li>
                             <li class="footer-list-item">
                                 <div class="footer-list-item__icon">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
-                                <span>Email:</span> hotro@bongda.com.vn
+                                <span>Email:</span> <?php echo $ls_options['emailft-2']; ?>
                             </li>
                         </ul>
                         <div class="footer-social">
