@@ -236,6 +236,10 @@ html {
   box-sizing: border-box;
 }
 
+.bg-color-main {
+  background-color: #f2f2f2;
+}
+
 .content .news-title {
   color: #ea0000;
   font-size: 1.8rem;
@@ -509,4 +513,175 @@ html {
   margin-bottom: 3rem;
   line-height: 1.2em;
   display: block;
+}
+.content .bg-color-white {
+  background-color: #fff;
+}
+.content .boder-left {
+  border: 1px solid #fff;
+  background-image: linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd);
+  background-repeat: no-repeat;
+  background-size: 0, 0, 1px 65%, 90% 1px;
+  background-position: left bottom, left bottom, right top, right top, 1px 1px;
+}
+.content .latest-details {
+  margin-top: 3rem;
+}
+.content .latest-details .hot-news {
+  padding: 3rem 1rem 0;
+}
+.content .latest-details .hot-news-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.content .latest-details .hot-news-list__item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+}
+.content .latest-details .hot-news-list__item a {
+  text-decoration: none;
+  color: #333;
+  line-height: 1.2em;
+  font-size: 1.5rem;
+}
+.content .latest-details .hot-news-list__item:last-child {
+  border: none;
+}
+.content .latest-details .news-details-focus {
+  padding: 0 1rem 0;
+}
+.content .latest-details .news-details-focus__list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.content .latest-details .news-details-focus__list--item {
+  padding: 0.5rem 0;
+}
+.content .latest-details .news-details-focus__list--item a {
+  text-decoration: none;
+  color: #333;
+  line-height: 1.2em;
+  font-size: 1.6rem;
+}
+.content .latest-details .news-details-focus__list--item-text {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+.content .latest-details .current-new {
+  margin-top: 2rem;
+}
+.content .latest-details .current-new-content {
+  position: relative;
+  padding: 0 1rem;
+}
+.content .latest-details .current-new-content__image {
+  height: 43rem;
+  margin-bottom: 0.8rem;
+}
+.content .latest-details .current-new-content__image img {
+  object-fit: cover;
+}
+.content .latest-details .current-new-content__info {
+  position: absolute;
+  top: 30rem;
+  color: #fff;
+  padding: 0 1.8rem;
+}
+.content .latest-details .current-new-content__info--heading {
+  font-weight: 700;
+  font-size: 2.6rem;
+  margin: 0 0 1rem;
+}
+.content .latest-details .current-new-content__info--date {
+  font-size: 1.2rem;
+}
+.content .latest-details .current-new-content__info--text {
+  padding-bottom: 1.4rem;
+  margin-top: 0.5rem;
+  font-size: 1.6rem;
+}
+.content .latest-details .current-new-content__list {
+  margin-left: 0;
+  padding-left: 0;
+}
+.content .latest-details .current-new-content__list--item {
+  border: 1px solid #fff;
+  background-image: linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd);
+  background-repeat: no-repeat;
+  background-size: 0, 99% 1px, 0, 0;
+  background-position: right bottom;
+}
+.content .latest-details .current-new-content__list--item-image {
+  height: 13rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.content .latest-details .current-new-content__list--item-info {
+  margin-top: 1.4rem;
+}
+.content .latest-details .current-new-content__list--item-info a {
+  text-decoration: none;
+  color: #333;
+}
+.content .latest-details .current-new-content__list--item-info a h4 {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+.content .latest-details .current-new-content__list--item-info a:hover {
+  color: #ea0000;
+}
+.content .latest-details .current-new-content__list--item-info p {
+  font-size: 1.5rem;
+  color: #444;
+  margin-top: 1.5rem;
+}
+.content .latest-details .current-new-content .pagination {
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.content .latest-details .current-new-content .pagination-list {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+.content .latest-details .current-new-content .pagination-list-item {
+  margin: 0 0.6rem;
+}
+.content .latest-details .current-new-content .pagination-list-item__btn {
+  background: #f3f3f3;
+  color: #777;
+  border: 1px solid #d9d9d9;
+  font-size: 1.5rem;
+  border-radius: 0;
+}
+.content .latest-details .current-new-content .pagination-list-item__btn:hover {
+  border: 1px solid #ea0000;
+  color: #ea0000;
+}
+.content .latest-details .reads-news {
+  padding-right: 0.5rem;
+}
+.content .latest-details .reads-news-video {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+.content .latest-details .reads-news-image {
+  margin-top: 1.4rem;
+}
+.content .latest-details .reads-news-heading {
+  padding-top: 1.6rem;
+  padding-bottom: 1.8rem;
+  padding-left: 0.8rem;
+  background-color: #f4f4f4;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+.content .latest-details .reads-news-content__text {
+  margin-top: 0.2rem;
+  font-size: 1.4rem;
+  line-height: 1.3em;
 }/*# sourceMappingURL=style.css.map */
