@@ -6,7 +6,7 @@
  *
  * @package Is_theme_webfooball
  */
-
+global $post
 ?>
 
 
@@ -15,7 +15,7 @@
 <div class="content bg-color-main">
 		<div class="container container-width bg-color-white">
 			<div class="row">
-				<div class="latest-details">
+				<div class="post-detail">
 					<div class="row">
 						<div class="col-xl-2 boder-left">
 							<div class="hot-news">
@@ -66,67 +66,167 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-xl-7">
-							<!-- <div class="current-new">
-								<div class="current-new-content">
-									<div class="current-new-content__image">
-										<img src="<?php bloginfo('template_directory') ?>/img/1-1613.jpg" alt="" style="width:100%; height: 100%;">
-									</div>
-									<div class="current-new-content__info">
-										<h3 class="current-new-content__info--heading">M.U bị chỉ trích vì đối xử bất công với chữ ký kỷ lục</h3>
-										<span class="current-new-content__info--date">
-											08:59 31/08 
-										</span>
-										<p class="current-new-content__info--text">
-											Huyền thoại Liverpool, Graeme Souness, đã cáo buộc Manchester United đối xử bất công với đội trưởng của họ, Harry Maguire
-										</p>
-									</div>
-									<ul class="current-new-content__list">
-										<?php 
-											$args = array('numberposts' => 17,'category' => 22);
-											$custom = get_posts($args);
-											foreach ($custom as $post) : setup_postdata( $post );
-											$image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
-										?>
-										<li class="current-new-content__list--item row">
-											<div class="current-new-content__list--item-image col-xl-4">
-												<img src="<?php echo $image[0]; ?>" alt="" style="width:100%; height: 100%;">
-											</div>
-											<div class="current-new-content__list--item-info col-xl-8">
-												<a href="<?php the_permalink(); ?>">
-													<h4><?php the_title(); ?></h4>
-												</a>
-												<p>
-													<?php echo get_the_excerpt(); ?>
-												</p>
-											</div>
-										</li>
-										<?php 
-											endforeach; 
-											wp_reset_postdata(); 
-										?>
-									</ul>
-									<div class="pagination">
-										<ul class="pagination-list">
-											<li class="pagination-list-item">
-												<button class="pagination-list-item__btn">1</button>
-											</li>
-											<li class="pagination-list-item">
-												<button class="pagination-list-item__btn">2</button>
-											</li>
-											<li class="pagination-list-item">
-												<button class="pagination-list-item__btn">3</button>
-											</li>
-											<li class="pagination-list-item">
-												<button class="pagination-list-item__btn">4</button>
-											</li>
-											<li class="pagination-list-item">
-												<button class="pagination-list-item__btn">5</button>
-											</li>
-										</ul>
+						<div class="col-xl-7 boder-top">
+							<div class="post-detail-content">
+								<div class="post-detail-content__info">
+									<h3 class="post-detail-content__info--heading">
+										<?php the_title(); ?>
+									</h3>
+									<div class="post-detail-content__info--text">
+										<?php echo get_the_content(); ?>
 									</div>
 								</div>
-							</div> -->
+								<div class="post-detail-content__share">
+									<h class="post-detail-content__share--heading">Chia sẻ</h>
+									<div class="post-detail-content__share--btn">
+										<button class="post-detail-content__share--btn-facebook btn">
+											<i class="fa-brands fa-facebook-f"></i>
+											facebook
+										</button>
+										<button class="post-detail-content__share--btn-google btn">
+											<i class="fa-brands fa-google-plus-g"></i>
+											google
+										</button>
+										<button class="post-detail-content__share--btn-twitter btn">
+											<i class="fa-brands fa-twitter"></i>
+											twitter
+										</button>
+									</div>
+								</div>
+								<div class="post-detail-content__heading">
+									<span>tin mới nhất</span>
+								</div>
+								<ul class="post-detail-content__latest">
+									<?php 
+										$args = array('numberposts' => 10,'category' => 25);
+										$custom = get_posts($args);
+										foreach( $custom as $post ) : setup_postdata($post);
+									?>
+										<li class="post-detail-content__latest--item">
+											<a href="<?php the_permalink();?>">
+												<?php the_title();?>
+											</a>
+										</li>
+									<?php endforeach; wp_reset_postdata(); ?>
+								</ul>
+								<div class="post-detail-content__heading">
+									<span>tin cùng chuyên mục</span>
+								</div>
+								<ul class="post-detail-content__category">
+									<?php 
+										$args = array('numberposts' => 10,'category' => 26);
+										$custom = get_posts($args);
+										foreach( $custom as $post ) : setup_postdata($post);
+									?>
+										<li class="post-detail-content__category--item">
+											<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+										</li>
+									<?php endforeach; wp_reset_postdata(); ?>
+								</ul>
+								<div class="post-detail-content__heading">
+									<span>tin nên đọc</span>
+								</div>
+								<div class="post-detail-content__read">
+									<div class="row">
+										<?php 
+											$args = array('numberposts' => 4,'category' => 24);
+											$custom = get_posts($args);
+											foreach($custom as $post) : setup_postdata( $post );
+											$image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+										?>
+										<div class="col-xl-3">
+											<div class="post-detail-content__read--image">
+												<img src="<?php echo $image[0] ?>" alt="" style="width:100%; height: 100%;">
+											</div>
+											<a class="post-detail-content__read--link" href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+										</div>
+										<?php endforeach; wp_reset_postdata(); ?>
+									</div>
+									<ul class="post-detail-content__read--list">
+										<?php 
+											$args = array('numberposts' =>6,'category' => 24);
+											$custom = get_posts($args);
+											foreach( $custom as $post ) : setup_postdata($post);
+										?>
+											<li class="post-detail-content__read--list-item">
+												<a href=""><?php the_title(); ?></a>
+											</li>
+										<?php endforeach; wp_reset_postdata(); ?>
+									</ul>
+								</div>
+								<div class="post-detail-content__previous">
+									<h4 class="news-title">bài viết trước đó</h4>
+									<div class="row">
+										<?php 
+											$args = array('numberposts' => 4,'category' => 27);
+											$custom = get_posts($args);
+											foreach($custom as $post) : setup_postdata( $post );
+											$image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+										?>
+										<div class="col-xl-3">
+											<div class="post-detail-content__previous--image">
+												<img src="<?php echo $image[0] ?>" alt="" style="width:100%; height: 100%;">
+											</div>
+											<a class="post-detail-content__previous--link" href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+										</div>
+										<?php endforeach; wp_reset_postdata(); ?>
+									</div>
+									<div class="row">
+										<?php 
+											$args = array('numberposts' => 10,'category' => 28);
+											$custom = get_posts($args);
+											foreach($custom as $post) : setup_postdata( $post );
+										?>
+										<div class="col-xl-6" style="max-height: 6rem;">
+											<ul class="post-detail-content__previous--list">
+												<li class="post-detail-content__previous--list-item">
+													<a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+												</li>
+											</ul>
+										</div>
+										<?php endforeach; wp_reset_postdata(); ?>
+									</div>
+								</div>
+								<div class="photo">
+									<h3 class="news-title">photo nổi bật</h3>
+									<div class="row">
+										<?php 
+											$args = array('numberposts' =>1,'category' =>29);
+											$custom = get_posts($args);
+											foreach($custom as $post) : setup_postdata( $post );
+											$image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+										?>
+										<div class="col-xl-8">
+											<div class="photo-left">
+												<div class="photo-left-image">
+													<img src="<?php echo $image[0] ?>" alt="" style="width:100%; height: 100%;">
+												</div>
+												<h3 class="photo-left-heading"> <?php the_title(); ?> </h3>
+											</div>
+										</div>
+										<?php endforeach; wp_reset_postdata(); ?>
+										<div class="col-xl-4">
+											<div class="row">
+												<?php 
+													$args = array('numberposts' =>2,'category' =>30);
+													$custom = get_posts($args);
+													foreach($custom as $post) : setup_postdata( $post );
+													$image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+												?>
+												<div class="col-xl-12">
+													<div class="photo-right">
+														<div class="photo-right-image">
+															<img src="<?php echo $image[0] ?>" alt="" style="width:100%; height: 100%;">
+														</div>
+														<h3 class="photo-right-heading"> <?php the_title(); ?> </h3>
+													</div>
+												</div>
+												<?php endforeach; wp_reset_postdata(); ?>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="col-xl-3">
 							<div class="reads-news">
