@@ -264,10 +264,11 @@ global $post;
                                             $args = array('numberposts' => 10,'category' => 9);
                                             $custom = get_posts($args);
                                             foreach ($custom as $post) : setup_postdata( $post );
+                                            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'thumbnail')
                                         ?>
                                         <div class="spanish-football-right d-flex">
                                             <div class="spanish-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php echo $image[0];?>" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="spanish-football-right__heading col-xl-10">
                                                 <?php the_title(); ?>
@@ -301,10 +302,11 @@ global $post;
                                             $args = array('numberposts' => 10,'category' => 10);
                                             $custom = get_posts($args);
                                             foreach ($custom as $post) : setup_postdata( $post );
+                                            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
                                         ?>
                                         <div class="vietnam-football-right d-flex">
                                             <div class="vietnam-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php echo $image[0];?>" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="vietnam-football-right__heading col-xl-10">
                                                 <?php the_title(); ?>
@@ -388,10 +390,11 @@ global $post;
                                             $args = array('numberposts' => 10,'category' => 12);
                                             $custom = get_posts($args);
                                             foreach ($custom as $post) : setup_postdata( $post );
+                                            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
                                         ?>
                                         <div class="backstage-right d-flex">
                                             <div class="backstage-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php echo $image[0];?>" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="backstage-right__heading col-xl-10">
                                                 <?php the_title(); ?>
@@ -425,10 +428,11 @@ global $post;
                                             $args = array('numberposts' => 10,'category' =>13);
                                             $custom = get_posts($args);
                                             foreach ($custom as $post) : setup_postdata( $post );
+                                            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');    
                                         ?>
                                         <div class="champions-league-right d-flex">
                                             <div class="champions-league-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php echo $image[0];?>" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="champions-league-right__heading col-xl-10">
                                                 <?php the_title(); ?>

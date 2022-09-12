@@ -257,7 +257,7 @@ html {
   border-top: 3px solid #ea0000;
 }
 .content .news-scroll {
-  max-height: 39vh;
+  max-height: 59vh;
   overflow-x: hidden;
 }
 .content .news-scroll {
@@ -302,7 +302,8 @@ html {
   height: 30rem;
 }
 .content-news .current-new-content__image img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .content-news .current-new-content__heading {
   color: #333;
@@ -581,7 +582,8 @@ html {
   margin-bottom: 0.8rem;
 }
 .content .latest-details .current-new-content__image img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .content .latest-details .current-new-content__info {
   position: absolute;
