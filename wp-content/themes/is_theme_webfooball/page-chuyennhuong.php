@@ -7,191 +7,190 @@
 
 get_header();
 ?>
-    <div class="content">
-            <div class="container container-width">
-                <div class="row">
-                    <div class="content-news">
-                        <div class="row">
-                            <div class="col-xl-3">
-                                <div class="hot-news">
-                                    <h4 class="news-title">tin nóng</h4>
-                                    <ul class="hot-news-list">
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Đồng ý HĐ 5 năm với M.U, tân binh tiềm năng bắt đầu tìm nhà ở Manchester
-                                            </a>
+    <div class="content bg-color-main">
+        <div class="container container-width bg-color-white">
+            <div class="row">
+                <div class="latest-details">
+                    <div class="row">
+                        <div class="col-xl-2 boder-left">
+                            <div class="hot-news">
+                                <h4 class="news-title">tin nóng</h4>
+                                <div class="news-details-image">
+                                    <img src="<?php bloginfo('template_directory') ?>/img/napoli-cho-man-utd-muon-osinhem-voi-2-dieu-kien-045611.jpg" alt="">
+                                </div>
+                                <ul class="hot-news-list">
+                                    <?php
+                                        $args = array('numberposts' => 10,'category' => 4);
+                                        $custom = get_posts($args);
+                                        foreach($custom as $post) : setup_postdata($post);
+                                    ?>
+                                    <li class="hot-news-list__item">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <?php the_title(); ?>
+                                        </a>
+                                    </li>
+                                    <?php
+                                        endforeach;
+                                        wp_reset_postdata();
+                                    ?>
+                                </ul>
+                            </div>
+                            <div class="news-details-focus">
+                                <h3 class="news-title">Tiêu điểm</h3>
+                                <ul class="news-details-focus__list">
+                                    <?php 
+                                        $args = array('numberposts' => 7,'category' => 21);
+                                        $custom = get_posts($args);
+                                        foreach ($custom as $post) : setup_postdata( $post );
+                                        $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+                                    ?>
+                                    <li class="news-details-focus__list--item">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <div class="news-details-focus__list--item-image">
+                                                <img src="<?php echo $image[0]; ?>" alt="" style="width:100%; height: 100%;">
+                                            </div>
+                                            <p class="news-details-focus__list--item-text">
+                                                <?php the_title(); ?>
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <?php 
+                                        endforeach;
+                                        wp_reset_postdata();
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-7">
+                            <div class="current-new">
+                                <div class="current-new-content">
+                                    <?php
+                                        $extension = get_term('31','chuyennhuong_cat');
+                                        $args = array(
+                                            'post_type' => 'chuyennhuong',
+                                            'post_status' => 'publish',
+                                            'posts_per_page' => 1,
+                                            'orderby' => 'title',
+                                            'order' => 'ASC',
+                                            'tax_query' => array(
+                                                array(
+                                                    'taxonomy' => 'chuyennhuong_cat', //double check your taxonomy name in you dd
+                                                    'field'    => 'term_id',
+                                                    'terms'    => array( $extension->term_id ),
+                                                ),
+                                            ),
+                                        );
+                                            $loop = new WP_Query( $args );
+                                            while ( $loop->have_posts() ) : $loop->the_post();
+                                    ?>
+                                    <div class="current-new-content__image">
+                                        <img src="<?php echo $image[0] ?>" alt="" style="width:100%; height: 100%;">
+                                    </div>
+                                    <div class="current-new-content__info">
+                                        <h3 class="current-new-content__info--heading"><?php the_title(); ?></h3>
+                                        <!-- <span class="current-new-content__info--date">
+                                            08:59 31/08 
+                                        </span>
+                                        <p class="current-new-content__info--text">
+                                            
+                                        </p> -->
+                                    </div>
+                                    <?php
+                                        endwhile;
+                                        wp_reset_postdata();
+                                    ?>
+                                    <ul class="current-new-content__list">
+                                        <?php
+                                            $extension = get_term('32','chuyennhuong_cat');
+                                            $args = array(
+                                                'post_type' => 'chuyennhuong',
+                                                'post_status' => 'publish',
+                                                'posts_per_page' => 17,
+                                                'orderby' => 'title',
+                                                'order' => 'ASC',
+                                                'tax_query' => array(
+                                                    array(
+                                                        'taxonomy' => 'chuyennhuong_cat', //double check your taxonomy name in you dd
+                                                        'field'    => 'term_id',
+                                                        'terms'    => array( $extension->term_id ),
+                                                    ),
+                                                ),
+                                            );
+                                                $loop = new WP_Query( $args );
+                                                while ( $loop->have_posts() ) : $loop->the_post();
+                                                $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+                                        ?>
+                                        <li class="current-new-content__list--item row">
+                                            <div class="current-new-content__list--item-image col-xl-4">
+                                                <img src="<?php echo $image[0]; ?>" alt="" style="width:100%; height: 100%;">
+                                            </div>
+                                            <div class="current-new-content__list--item-info col-xl-8">
+                                                <a href="<?php the_permalink(); ?>">
+                                                    <h4><?php the_title(); ?></h4>
+                                                </a>
+                                                <p>
+                                                    <?php echo get_the_excerpt(); ?>
+                                                </p>
+                                            </div>
                                         </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Sắp nổ bom tấn đắt giá, M.U chốt luôn vụ Cody Gakpo
-                                            </a>
-                                        </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Ajax đổ vỡ thương vụ với Chelsea cho người thay Antony 
-                                            </a>
-                                        </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Pique chơi lớn, ra giá 21 triệu bảng cho tiền vệ Man United
-                                            </a>
-                                        </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Sao Arsenal kiểm tra y tế
-                                            </a>
-                                        </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Ben Foster khuyên Ten Hag cứu rỗi 2 ngôi sao M.U
-                                            </a>
-                                        </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                M.U bắt đầu đàm phán với Newcastle, không phải cho Saint-Maximin
-                                            </a>
-                                        </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Nicolas Pepe từ chối CLB Premier League 
-                                            </a>
-                                        </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Giới chủ ưu ái, Ten Hag đã được cấp hơn 200 triệu bảng
-                                            </a>
-                                        </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Ten Hag và Bruno cùng đồng ý 1 điều về Casemiro
-                                            </a>
-                                        </li>
-                                        <li class="hot-news-list__item">
-                                            <a href="#">
-                                                Conte 'giải vây' cho Mourinho
-                                            </a>
-                                        </li>
+                                        <?php
+                                            endwhile;
+                                            wp_reset_postdata();
+                                        ?>
                                     </ul>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="current-new">
-                                    <div class="current-new-content">
-                                        <div class="current-new-content__image">
-                                            <img src="<?php bloginfo('template_directory') ?>/img/conte-da-dung-ve-christian-eriksen-062951.png" alt="" style="width:100%; height: 100%;">
-                                        </div>
-                                        <h3 class="current-new-content__heading">Conte đã đúng về Christian Eriksen</h3>
-                                        <p class="current-new-content__text">
-                                            Christian Eriksen đã thể hiện màn trình diễn hay nhất của mình trong màu áo Quỷ đỏ cho đến nay ở trận thắng Liverpool.
-                                        </p>
-                                        <div class="current-new-content__detail">
-                                            <div class="row">
-                                                <div class="col-xl-4">
-                                                    <div class="current-new-content__detail--image">
-                                                        <img src="<?php bloginfo('template_directory') ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                                    </div>
-                                                    <p class="current-new-content__detail--text">
-                                                        Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                    </p>
-                                                </div>
-                                                <div class="col-xl-4">
-                                                    <div class="current-new-content__detail--image">
-                                                        <img src="<?php bloginfo('template_directory') ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                                    </div>
-                                                    <p class="current-new-content__detail--text">
-                                                        Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                    </p>
-                                                </div>
-                                                <div class="col-xl-4">
-                                                    <div class="current-new-content__detail--image">
-                                                        <img src="<?php bloginfo('template_directory') ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                                    </div>
-                                                    <p class="current-new-content__detail--text">
-                                                        Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                    </p>
-                                                </div>
-                                                <div class="col-xl-4">
-                                                    <div class="current-new-content__detail--image">
-                                                        <img src="<?php bloginfo('template_directory') ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                                    </div>
-                                                    <p class="current-new-content__detail--text">
-                                                        Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                    </p>
-                                                </div>
-                                                <div class="col-xl-4">
-                                                    <div class="current-new-content__detail--image">
-                                                        <img src="<?php bloginfo('template_directory') ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                                    </div>
-                                                    <p class="current-new-content__detail--text">
-                                                        Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                    </p>
-                                                </div>
-                                                <div class="col-xl-4">
-                                                    <div class="current-new-content__detail--image">
-                                                        <img src="<?php bloginfo('template_directory') ?>/img/0_gettyimages-1400325151-0834.jpg" alt="" style="width:100%; height: 100%;">
-                                                    </div>
-                                                    <p class="current-new-content__detail--text">
-                                                        Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                    </p>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
+                                    <div class="pagination">
+                                        <ul class="pagination-list">
+                                            <li class="pagination-list-item">
+                                                <button class="pagination-list-item__btn">1</button>
+                                            </li>
+                                            <li class="pagination-list-item">
+                                                <button class="pagination-list-item__btn">2</button>
+                                            </li>
+                                            <li class="pagination-list-item">
+                                                <button class="pagination-list-item__btn">3</button>
+                                            </li>
+                                            <li class="pagination-list-item">
+                                                <button class="pagination-list-item__btn">4</button>
+                                            </li>
+                                            <li class="pagination-list-item">
+                                                <button class="pagination-list-item__btn">5</button>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3">
-                                <div class="reads-news">
-                                    <div class="reads-news-video">
-                                        <img src="<?php bloginfo('template_directory') ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                    </div>
-                                    <div class="news-title">Tin đọc nhiều nhất</div>
-                                    <div class="reads-news-image">
-                                        <img src="<?php bloginfo('template_directory') ?>/img/conte-da-dung-ve-christian-eriksen-062951.png" alt="" style="width:100%; height: 100%;">
-                                    </div>
-                                    <h3 class="reads-news-heading">Conte đã đúng về Christian Eriksen</h3>
-                                    <div class="row">
-                                        <div class="col-xl-6 bg-cl">
-                                            <div class="reads-news-content">
-                                                <div class="reads-news-content__image">
-                                                    <img src="<?php bloginfo('template_directory') ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                                </div>
-                                                <p class="reads-news-content__text">
-                                                    Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                </p>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="reads-news">
+                                <div class="reads-news-video">
+                                    <img src="<?php bloginfo('template_directory') ?>/img/van-der-sar-xin-loi-khuyen-tu-ten-hag-160348.jpg" alt="" style="width:100%; height: 100%;">
+                                </div>
+                                <div class="news-title">Tin đọc nhiều nhất</div>
+                                <div class="reads-news-image">
+                                    <img src="<?php bloginfo('template_directory') ?>/img/napoli-cho-man-utd-muon-osinhem-voi-2-dieu-kien-045611.jpg" alt="" style="width:100%; height: 100%;">
+                                </div>
+                                <h3 class="reads-news-heading">Napoli cho Man Utd mượn Osinhem với 2 điều kiện</h3>
+                                <div class="row">
+                                    <?php 
+                                        $args = array('numberposts' =>4,'category' =>23);
+                                        $custom = get_posts($args);
+                                        foreach($custom as $post) : setup_postdata( $post );
+                                        $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+                                    ?>
+                                    <div class="col-xl-6 bg-cl">
+                                        <div class="reads-news-content">
+                                            <div class="reads-news-content__image">
+                                                <img src="<?php echo $image[0] ?>" alt="" style="width:100%; height: 100%;">
                                             </div>
-                                        </div>
-                                        <div class="col-xl-6 bg-cl">
-                                            <div class="reads-news-content">
-                                                <div class="reads-news-content__image">
-                                                    <img src="<?php bloginfo('template_directory') ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                                </div>
-                                                <p class="reads-news-content__text">
-                                                    Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 bg-cl">
-                                            <div class="reads-news-content">
-                                                <div class="reads-news-content__image">
-                                                    <img src="<?php bloginfo('template_directory') ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                                </div>
-                                                <p class="reads-news-content__text">
-                                                    Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 bg-cl">
-                                            <div class="reads-news-content">
-                                                <div class="reads-news-content__image">
-                                                    <img src="<?php bloginfo('template_directory') ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
-                                                </div>
-                                                <p class="reads-news-content__text">
-                                                    Sắp nổ bom tấn đắt giá, MU chốt luôn vụ Cody Gakpo
-                                                </p>
-                                            </div>
+                                            <p class="reads-news-content__text">
+                                                <?php the_title(); ?>
+                                            </p>
                                         </div>
                                     </div>
+                                    <?php 
+                                        endforeach;
+                                        wp_reset_postdata();
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -199,5 +198,6 @@ get_header();
                 </div>
             </div>
         </div>
+    </div>
 <?php
 get_footer();

@@ -149,11 +149,12 @@ global $post;
                                         $args = array('numberposts' => 10,'category' => 6);
                                         $custom = get_posts($args);
                                         foreach ($custom as $post) : setup_postdata( $post );
+                                        $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
                                     ?>
                                     <div class="col-xl-6">
                                         <div class="latest-news-content d-flex">
                                             <div class="latest-news-content__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php echo $image[0]; ?>" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="latest-news-content__heading col-xl-10">
                                                 <?php the_title(); ?>
@@ -187,10 +188,11 @@ global $post;
                                             $args = array('numberposts' => 10,'category' => 7);
                                             $custom = get_posts($args);
                                             foreach ($custom as $post) : setup_postdata( $post );
+                                            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
                                         ?>
                                         <div class="transfer-news-right d-flex">
                                             <div class="transfer-news-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php echo$image[0]; ?>" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="transfer-news-right__heading col-xl-10">
                                                 <?php the_title(); ?>
@@ -224,10 +226,11 @@ global $post;
                                             $args = array('numberposts' => 10,'category' => 8);
                                             $custom = get_posts($args);
                                             foreach ($custom as $post) : setup_postdata( $post );
+                                            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
                                         ?>
                                         <div class="english-football-right d-flex">
                                             <div class="english-football-right__image col-xl-2">
-                                                <img src="<?php bloginfo('template_directory'); ?>/img/maxresdefault-0617.jpg" alt="" style="width:100%; height: 100%;">
+                                                <img src="<?php echo $image[0]; ?>" alt="" style="width:100%; height: 100%;">
                                             </div>
                                             <h4 class="english-football-right__heading col-xl-10">
                                                 <?php the_title(); ?>
